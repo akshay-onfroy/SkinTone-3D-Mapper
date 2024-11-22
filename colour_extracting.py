@@ -1,10 +1,9 @@
 import cv2
 import numpy as np
 # maybe input the image path as input for this function from main program 
-def first_call():
+def first_call(face_path,mesh_path):
     #FINDING THE AVERAGE SKIN TONE BY MASKING THE SKIN REGION AND AVERAGING IT
-    face = cv2.imread('imgs/test_1.jpg')
-    cv2.imshow("Face",face)
+    face = cv2.imread(face_path)
 
     converted_face = cv2.cvtColor(face,cv2.COLOR_BGR2YCrCb)
 
@@ -26,8 +25,7 @@ def first_call():
         print("No skin pixels detected!")
 
     #FINDING THE REGION ON THE MESH WHICH IS TO BE CHANGED THE COLOUR
-    image = cv2.imread('glb/1.jpg')
-    cv2.imshow("Reference Mesh",image)
+    image = cv2.imread(mesh_path)
 
     converted_img = cv2.cvtColor(image,cv2.COLOR_BGR2YCrCb)
 
@@ -61,10 +59,6 @@ def first_call():
         0, 255
     )
     result = result.astype(np.uint8)
-
-    cv2.imshow("Skin Tone Changed Mesh", result)
-    cv2.imwrite("imgs/extracted_mesh.png",result)
-    cv2.waitKey()
-    cv2.destroyAllWindows()
+    cv2.imwrite("/Users/akshay/Documents/Work/Project_3 ( Syncing proj 1 & 2)/imgs/extracted_mesh.png",result)
 
 
