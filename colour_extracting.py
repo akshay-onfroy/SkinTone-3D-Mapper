@@ -26,7 +26,7 @@ def first_call():
         print("No skin pixels detected!")
 
     #FINDING THE REGION ON THE MESH WHICH IS TO BE CHANGED THE COLOUR
-    image = cv2.imread('imgs/bodyMesh.png')
+    image = cv2.imread('glb/1.jpg')
     cv2.imshow("Reference Mesh",image)
 
     converted_img = cv2.cvtColor(image,cv2.COLOR_BGR2YCrCb)
